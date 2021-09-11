@@ -4,11 +4,11 @@ USE Veiculos;
 GO
 
 
-CREATE TABLE [Tipos] (
-  [TipoId] INT IDENTITY(1,1),
+CREATE TABLE [TiposVeiculo] (
+  [TipoVeiculoId] INT IDENTITY(1,1),
   [Descricao] VARCHAR(30) NOT NULL,
   
-  CONSTRAINT [PK_Tipos_TipoId] PRIMARY KEY ([TipoId])
+  CONSTRAINT [PK_TiposVeiculo_TipoVeiculoId] PRIMARY KEY ([TipoVeiculoId])
 );
 
 CREATE TABLE [Combustiveis] (
@@ -33,24 +33,24 @@ CREATE TABLE [Veiculos] (
   [AnoFabricacao] INT NOT NULL,
   [AnoModelo] INT NOT NULL,
   [Cor] VARCHAR(15) NOT NULL,
-  [TipoId] INT NOT NULL,  
+  [TipoVeiculoId] INT NOT NULL,  
   [CombustivelId] INT NOT NULL,  
 
   CONSTRAINT [PK_Veiculos_VeiculoId] PRIMARY KEY ([VeiculoId]),
   CONSTRAINT [FK_Veiculos_CombustivelId] FOREIGN KEY ([CombustivelId]) REFERENCES [Combustiveis]([CombustivelId]),
-  CONSTRAINT [FK_Veiculos_TipoId] FOREIGN KEY ([TipoId]) REFERENCES [Tipos]([TipoId]),
+  CONSTRAINT [FK_Veiculos_TipoVeiculoId] FOREIGN KEY ([TipoVeiculoId]) REFERENCES [TiposVeiculo]([TipoVeiculoId]),
   CONSTRAINT [FK_Veiculos_MarcaId] FOREIGN KEY ([MarcaId]) REFERENCES [Marcas]([MarcaId])
 );
 
 
-INSERT INTO Tipos VALUES ('Motocicleta');
-INSERT INTO Tipos VALUES ('Automovel');
-INSERT INTO Tipos VALUES ('Microonibus');
-INSERT INTO Tipos VALUES ('Onibus');
-INSERT INTO Tipos VALUES ('Caminhonete');
-INSERT INTO Tipos VALUES ('Caminhao');
-INSERT INTO Tipos VALUES ('Camioneta');
-INSERT INTO Tipos VALUES ('Utilitario');
+INSERT INTO TiposVeiculo VALUES ('Motocicleta');
+INSERT INTO TiposVeiculo VALUES ('Automovel');
+INSERT INTO TiposVeiculo VALUES ('Microonibus');
+INSERT INTO TiposVeiculo VALUES ('Onibus');
+INSERT INTO TiposVeiculo VALUES ('Caminhonete');
+INSERT INTO TiposVeiculo VALUES ('Caminhao');
+INSERT INTO TiposVeiculo VALUES ('Camioneta');
+INSERT INTO TiposVeiculo VALUES ('Utilitario');
 
 INSERT INTO Combustiveis VALUES ('Gasolina');
 INSERT INTO Combustiveis VALUES ('Etanol');
