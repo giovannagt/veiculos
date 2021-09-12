@@ -66,3 +66,27 @@ INSERT INTO Marcas VALUES ('Hyundai');
 INSERT INTO Marcas VALUES ('Nissan');
 INSERT INTO Marcas VALUES ('Chevrolet');
 INSERT INTO Marcas VALUES ('FIAT');
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_listarMarcas]
+AS
+	SELECT * FROM Marcas 
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_listarTiposVeiculo]
+AS
+	SELECT * FROM TiposVeiculo 
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_listarCombustiveis]
+AS
+	SELECT * FROM Combustiveis 
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_listarVeiculos]
+AS
+	SELECT * FROM Veiculos 

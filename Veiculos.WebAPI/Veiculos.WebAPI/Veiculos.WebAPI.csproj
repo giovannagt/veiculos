@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -85,6 +88,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Business\CombustivelBusiness.cs" />
+    <Compile Include="Business\MarcaBusiness.cs" />
+    <Compile Include="Business\TipoVeiculoBusiness.cs" />
+    <Compile Include="Business\VeiculoBusiness.cs" />
+    <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -101,8 +109,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Veiculos.DataAccess\Veiculos.DataAccess.csproj">
+      <Project>{8911B6C8-72EA-4C8D-915E-7FE943AEE9AC}</Project>
+      <Name>Veiculos.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Veiculos.Models\Veiculos.Models.csproj">
+      <Project>{D00CEF20-3E45-4A6A-9292-8935DB404E88}</Project>
+      <Name>Veiculos.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
