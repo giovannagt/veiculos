@@ -10,7 +10,7 @@ namespace Veiculos.Site.Functions
     {
         public static void Show(this Page pagina, string mensagem)
         {
-            pagina.ClientScript.RegisterStartupScript(pagina.GetType(), "MessageBox", "<script language='javascript'>alert('" + mensagem + "');</script>");
+            pagina.ClientScript.RegisterStartupScript(pagina.GetType(), "Alerta", "<script language='javascript'>alert('" + mensagem + "');</script>");
         }
     }
 }

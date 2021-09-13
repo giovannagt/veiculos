@@ -89,4 +89,70 @@ GO
 
 CREATE PROCEDURE [dbo].[sp_listarVeiculos]
 AS
-	SELECT * FROM Veiculos 
+	SELECT VeiculoId, Placa, Marcas.Descricao as Marca, Modelo, AnoFabricacao, AnoModelo, Cor, TiposVeiculo.Descricao as TipoVeiculo, Combustiveis.Descricao as Combustivel 
+	FROM Veiculos 
+	LEFT JOIN Marcas ON Marcas.MarcaId = Veiculos.MarcaId
+	LEFT JOIN TiposVeiculo ON TiposVeiculo.TipoVeiculoId = Veiculos.TipoVeiculoId
+	LEFT JOIN Combustiveis ON Combustiveis.CombustivelId = Veiculos.CombustivelId
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_buscarVeiculo]
+(
+	@Placa VARCHAR(7) NULL,
+	@VeiculoId INT = 0
+)
+AS
+	SELECT *
+	FROM Veiculos
+	WHERE (@Placa IS NULL OR Placa = @Placa) AND (@VeiculoId = 0 OR VeiculoId = @VeiculoId)
+
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_incluirVeiculo]
+(	
+	@Placa VARCHAR(7),
+	@MarcaId INT,
+	@Modelo VARCHAR(50),
+	@AnoFabricacao INT,
+	@AnoModelo INT,
+	@Cor VARCHAR(15),
+	@TipoVeiculoId INT,
+	@CombustivelId INT
+)
+AS
+	INSERT INTO Veiculos (Placa, MarcaId, Modelo, AnoFabricacao, AnoModelo, Cor, TipoVeiculoId,	CombustivelId)
+	VALUES (@Placa, @MarcaId, @Modelo, @AnoFabricacao, @AnoModelo, @Cor, @TipoVeiculoId, @CombustivelId);
+	
+	SELECT SCOPE_IDENTITY(); 
+
+
+GO
+	
+CREATE PROCEDURE [dbo].[sp_alterarVeiculo]
+(	
+	@VeiculoId INT,
+	@Placa VARCHAR(7),
+	@MarcaId INT,
+	@Modelo VARCHAR(50),
+	@AnoFabricacao INT,
+	@AnoModelo INT,
+	@Cor VARCHAR(15),
+	@TipoVeiculoId INT,
+	@CombustivelId INT
+)
+AS
+	UPDATE Veiculos SET Placa = @Placa, MarcaId = @MarcaId, Modelo = @Modelo, AnoFabricacao = @AnoFabricacao, AnoModelo = @AnoModelo, Cor = @Cor, TipoVeiculoId = @TipoVeiculoId, CombustivelId = @CombustivelId
+	WHERE VeiculoId = @VeiculoId;
+
+GO
+
+CREATE PROCEDURE [dbo].[sp_excluirVeiculo]
+(
+	@VeiculoId INT
+)
+AS
+	DELETE FROM Veiculos WHERE VeiculoId = @VeiculoId;
+	
+	

@@ -19,19 +19,39 @@ namespace Veiculos.Site.Functions
             }
         }
 
-        //public async static Task<string> Post(string rota, string message)
-        //{
-        //    using (var client = new HttpClient())
-        //    {
-        //        var response = await client.PostAsync("https://localhost:44398/api/Usuarios/" + rota, new StringContent(message, Encoding.UTF8, "application/json"));
+        public async static Task<HttpResponseMessage> Post(string rota, string message)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:44398/api/Veiculo/" + rota)
+                {
+                    Content = new StringContent(message, Encoding.UTF8, "application/json")
+                };
 
-        //        if(true)
-        //        {
+                return await client.SendAsync(request);
+            }
+        }
 
-        //        }
+        public async static Task<HttpResponseMessage> Put(string rota, string message)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, "https://localhost:44398/api/Veiculo/" + rota)
+                {
+                    Content = new StringContent(message, Encoding.UTF8, "application/json")
+                };
 
-        //        return await response.Content.ReadAsStringAsync();
-        //    }
-        //}
+                return await client.SendAsync(request);
+            }
+        }
+
+        public async static Task<HttpResponseMessage> Delete(string rota)
+        {            
+            using (var client = new HttpClient())
+            {
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, "https://localhost:44398/api/Veiculo/" + rota);
+                return await client.SendAsync(request);
+            }
+        }
     }
 }

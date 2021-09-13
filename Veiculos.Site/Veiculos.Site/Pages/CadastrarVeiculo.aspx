@@ -10,7 +10,7 @@
         <div class="row mt-4">
             <div class="col-md-2">
                 <asp:Label ID="Label1" runat="server" Text="Placa"></asp:Label>
-                <asp:TextBox ID="txtPlaca" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtPlaca" runat="server" CssClass="form-control"  MaxLength="7"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Informe a placa" ControlToValidate="txtPlaca" ForeColor="Red" ValidationGroup="ValidarInformacoes"></asp:RequiredFieldValidator>
             </div>
             <div class="col-md-4">
@@ -27,14 +27,14 @@
             </div>
             <div class="col-md-2">
                 <asp:Label ID="Label4" runat="server" Text="Ano Fabricação"></asp:Label>
-                <asp:TextBox ID="txtAnoFabricacao" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Informe o ano de fabricação" ControlToValidate="txtAnoFabricacao" ForeColor="Red" ValidationGroup="ValidarInformacoes"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtAnoFabricacao" runat="server" CssClass="form-control" onkeypress="return onlyNumbers(event)" MaxLength ="4"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Informe o ano de fabricação" ControlToValidate="txtAnoFabricacao" ForeColor="Red" ValidationGroup="ValidarInformacoes" ></asp:RequiredFieldValidator>
             </div>
 
             <div class="col-md-2">
                 <asp:Label ID="Label5" runat="server" Text="Ano Modelo"></asp:Label>
-                <asp:TextBox ID="txtAnoModelo" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Informe o ano do modelo" ControlToValidate="txtAnoModelo" ForeColor="Red" ValidationGroup="ValidarInformacoes"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtAnoModelo" runat="server" CssClass="form-control" onkeypress="return onlyNumbers(event)" MaxLength="4"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Informe o ano do modelo" ControlToValidate="txtAnoModelo" ForeColor="Red" ValidationGroup="ValidarInformacoes" ></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="row">
@@ -65,5 +65,15 @@
         </div>
 
     </form>
+
+    <script>      
+        function onlyNumbers(event) {
+            var charCode = (event.which) ? event.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
 
 </asp:Content>

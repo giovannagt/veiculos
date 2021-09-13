@@ -2,4 +2,64 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <asp:Repeater ID="gridVeiculos" runat="server" >
+                <HeaderTemplate>
+                    <h1>Lista de Veículos</h1>
+                    <table class="table col-10">
+                        <tr>
+                            <th scope="col" style="width: 40px">ID</th>
+                            <th scope="col" style="width: 50px">Placa</th>
+                            <th scope="col" style="width: 70px">Marca</th>
+                            <th scope="col" style="width: 120px">Modelo</th>
+                            <th scope="col" style="width: 40px">Ano Fabricacao</th>
+                            <th scope="col" style="width: 40px">Ano modelo</th>
+                            <th scope="col" style="width: 40px">Cor</th>
+                            <th scope="col" style="width: 50px">Tipo Veiculo</th>
+                            <th scope="col" style="width: 40px">Combustivel</th>
+                            <th scope="col" style="width: 70px">Ações</th>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblVeiculoId" runat="server" Text='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblPlaca" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Placa") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblMarca" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Marca") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblModelo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Modelo") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblAnoFabricacao" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "AnoFabricacao") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblAnoModelo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "AnoModelo") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblCor" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Cor") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblTipoVeiculo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "TipoVeiculo") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblCombustivel" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Combustivel") %>' />
+                        </td>
+                        <td>
+                            <asp:Button ID="btnAlterar" runat="server" Text="Alterar" CssClass="btn btn-success"
+                                CommandArgument='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' OnClick="btnAlterar_Click"  />
+
+                            <asp:Button ID="btnExcluir" runat="server" Text="Excluir" CssClass="btn btn-danger"
+                                CommandArgument='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir?')"/>
+                        </td>
+                    </tr>
+                </ItemTemplate>
+            </asp:Repeater>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

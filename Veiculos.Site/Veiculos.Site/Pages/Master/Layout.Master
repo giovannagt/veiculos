@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/CadastrarVeiculo.aspx" CssClass="nav-link">Cadastrar</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/CadastrarVeiculo.aspx?VeiculoId=0" CssClass="nav-link">Cadastrar</asp:HyperLink>
                     </li>
                     <li class="nav-item">
                         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/ListarVeiculos.aspx" CssClass="nav-link">Listar</asp:HyperLink>

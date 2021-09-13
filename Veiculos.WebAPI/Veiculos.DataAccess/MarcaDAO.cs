@@ -20,7 +20,7 @@ namespace Veiculos.DataAccess
             throw new NotImplementedException();
         }
 
-        public override int Deletar(int id)
+        public override int Excluir(int id)
         {
             throw new NotImplementedException();
         }

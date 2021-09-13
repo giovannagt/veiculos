@@ -42,11 +42,10 @@ namespace Veiculos.DataAccess
 
         public abstract int Alterar(T item);
 
-        public abstract int Deletar(int id);
+        public abstract int Excluir(int id);
 
         public abstract DataTable Buscar(int id);
 
-
-        public abstract DataTable Listar();
+        public abstract DataTable Listar();       
     }
 }
