@@ -11,8 +11,10 @@
             <div class="col-md-2">
                 <asp:Label ID="Label1" runat="server" Text="Placa"></asp:Label>
                 <asp:TextBox ID="txtPlaca" runat="server" Style="text-transform: uppercase;" CssClass="form-control" MaxLength="7"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Informe a placa" ControlToValidate="txtPlaca" ForeColor="Red" ValidationGroup="ValidarInformacoes" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPlaca" ErrorMessage="Placa inválida." ValidationExpression="^[a-zA-Z]{3}[0-9][A-Za-z0-9][0-9]{2}$" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidarInformacoes" />
+                <div class="row">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Informe a placa" ControlToValidate="txtPlaca" ForeColor="Red" ValidationGroup="ValidarInformacoes" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPlaca" ErrorMessage="Placa inválida." ValidationExpression="^[a-zA-Z]{3}[0-9][A-Za-z0-9][0-9]{2}$" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidarInformacoes" />
+                </div>
             </div>
             <div class="col-md-4">
                 <asp:Label ID="Label3" runat="server" Text="Modelo"></asp:Label>
@@ -29,15 +31,19 @@
             <div class="col-md-2">
                 <asp:Label ID="Label4" runat="server" Text="Ano Fabricação"></asp:Label>
                 <asp:TextBox ID="txtAnoFabricacao" runat="server" CssClass="form-control" onkeypress="return onlyNumbers(event)" MaxLength="4"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Informe o ano" ControlToValidate="txtAnoFabricacao" ForeColor="Red" ValidationGroup="ValidarInformacoes" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="valMin" runat="server" ControlToValidate="txtAnoFabricacao" ErrorMessage="Ano inválido (ex: 2021)" ValidationExpression=".{4}.*" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidarInformacoes" />
+                <div class="row">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Informe o ano" ControlToValidate="txtAnoFabricacao" ForeColor="Red" ValidationGroup="ValidarInformacoes" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="valMin" runat="server" ControlToValidate="txtAnoFabricacao" ErrorMessage="Ano inválido (ex: 2021)" ValidationExpression=".{4}.*" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidarInformacoes" />
+                </div>
             </div>
 
             <div class="col-md-2">
                 <asp:Label ID="Label5" runat="server" Text="Ano Modelo"></asp:Label>
                 <asp:TextBox ID="txtAnoModelo" runat="server" CssClass="form-control" onkeypress="return onlyNumbers(event)" MaxLength="4"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Informe o ano" ControlToValidate="txtAnoModelo" ForeColor="Red" ValidationGroup="ValidarInformacoes" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAnoModelo" ErrorMessage="Ano inválido (ex: 2021)" ValidationExpression=".{4}.*" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidarInformacoes" />
+                <div class="row">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Informe o ano" ControlToValidate="txtAnoModelo" ForeColor="Red" ValidationGroup="ValidarInformacoes" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAnoModelo" ErrorMessage="Ano inválido (ex: 2021)" ValidationExpression=".{4}.*" ForeColor="Red" Display="Dynamic" ValidationGroup="ValidarInformacoes" />
+                </div>
             </div>
         </div>
         <div class="row mt-5">
