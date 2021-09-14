@@ -71,19 +71,19 @@ GO
 
 CREATE PROCEDURE [dbo].[sp_listarMarcas]
 AS
-	SELECT * FROM Marcas 
+	SELECT MarcaId, Descricao FROM Marcas 
 
 GO
 
 CREATE PROCEDURE [dbo].[sp_listarTiposVeiculo]
 AS
-	SELECT * FROM TiposVeiculo 
+	SELECT TipoVeiculoId, Descricao FROM TiposVeiculo 
 
 GO
 
 CREATE PROCEDURE [dbo].[sp_listarCombustiveis]
 AS
-	SELECT * FROM Combustiveis 
+	SELECT CombustivelId, Descricao FROM Combustiveis 
 
 GO
 
@@ -103,7 +103,7 @@ CREATE PROCEDURE [dbo].[sp_buscarVeiculo]
 	@VeiculoId INT = 0
 )
 AS
-	SELECT *
+	SELECT VeiculoId, Placa, MarcaId, Modelo, AnoFabricacao, AnoModelo, Cor, TipoVeiculoId, CombustivelId
 	FROM Veiculos
 	WHERE (@Placa IS NULL OR Placa = @Placa) AND (@VeiculoId = 0 OR VeiculoId = @VeiculoId)
 
