@@ -8,17 +8,17 @@
             <asp:Repeater ID="gridVeiculos" runat="server">
                 <HeaderTemplate>
                     <h1>Lista de Veículos</h1>
-                    <table class="table table-hover">
-                        <tr>
+                    <table class="table table-hover mt-4">
+                        <tr class="table-dark">
                             <th scope="col">ID</th>
                             <th scope="col">Placa</th>
                             <th scope="col">Marca</th>
                             <th scope="col">Modelo</th>
-                            <th scope="col">Ano Fabricacao</th>
+                            <th scope="col">Ano Fabricação</th>
                             <th scope="col">Ano modelo</th>
                             <th scope="col">Cor</th>
-                            <th scope="col">Tipo Veiculo</th>
-                            <th scope="col">Combustivel</th>
+                            <th scope="col">Tipo Veículo</th>
+                            <th scope="col">Combustível</th>
                             <th scope="col">Ações</th>
                         </tr>
                 </HeaderTemplate>
