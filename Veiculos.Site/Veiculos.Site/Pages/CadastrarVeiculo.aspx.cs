@@ -136,7 +136,7 @@ namespace Veiculos.Site.Pages
             Veiculo veiculo = new Veiculo();
 
             veiculo.VeiculoId = Convert.ToInt32(Session["VeiculoId"]);
-            veiculo.Placa = txtPlaca.Text;
+            veiculo.Placa = txtPlaca.Text.ToUpper();
             veiculo.Modelo = txtModelo.Text;
             veiculo.MarcaId = Convert.ToInt32(ddlMarca.SelectedValue);
             veiculo.AnoFabricacao = Convert.ToInt32(txtAnoFabricacao.Text);
