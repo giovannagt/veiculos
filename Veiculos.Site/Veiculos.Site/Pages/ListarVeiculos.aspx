@@ -1,24 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Master/Layout.Master" AutoEventWireup="true" Async="true" CodeBehind="ListarVeiculos.aspx.cs" Inherits="Veiculos.Site.Pages.ListarVeiculos" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <asp:Repeater ID="gridVeiculos" runat="server" >
+            <asp:Repeater ID="gridVeiculos" runat="server">
                 <HeaderTemplate>
                     <h1>Lista de Veículos</h1>
-                    <table class="table col-10">
+                    <table class="table table-hover">
                         <tr>
-                            <th scope="col" style="width: 40px">ID</th>
+                            <th scope="col" style="width: 20px">ID</th>
                             <th scope="col" style="width: 50px">Placa</th>
-                            <th scope="col" style="width: 70px">Marca</th>
+                            <th scope="col" style="width: 50px">Marca</th>
                             <th scope="col" style="width: 120px">Modelo</th>
                             <th scope="col" style="width: 40px">Ano Fabricacao</th>
                             <th scope="col" style="width: 40px">Ano modelo</th>
                             <th scope="col" style="width: 40px">Cor</th>
-                            <th scope="col" style="width: 50px">Tipo Veiculo</th>
+                            <th scope="col" style="width: 40px">Tipo Veiculo</th>
                             <th scope="col" style="width: 40px">Combustivel</th>
-                            <th scope="col" style="width: 70px">Ações</th>
+                            <th scope="col" style="width: 150px">Ações</th>
                         </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -52,10 +53,10 @@
                         </td>
                         <td>
                             <asp:Button ID="btnAlterar" runat="server" Text="Alterar" CssClass="btn btn-success"
-                                CommandArgument='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' OnClick="btnAlterar_Click"  />
+                                CommandArgument='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' OnClick="btnAlterar_Click"  />                            
 
                             <asp:Button ID="btnExcluir" runat="server" Text="Excluir" CssClass="btn btn-danger"
-                                CommandArgument='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir?')"/>
+                                CommandArgument='<%#  DataBinder.Eval(Container.DataItem, "VeiculoId") %>' OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir?')" />
                         </td>
                     </tr>
                 </ItemTemplate>
