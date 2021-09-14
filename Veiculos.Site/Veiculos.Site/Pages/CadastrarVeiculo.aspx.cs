@@ -126,13 +126,7 @@ namespace Veiculos.Site.Pages
             }
         }
         protected async void btnSalvar_Click(object sender, EventArgs e)
-        {
-            if(!ValidarPlaca())
-            {
-                Alerta.Show(this.Page, "Placa inválida.");
-                return;
-            }
-
+        {           
             Veiculo veiculo = new Veiculo();
 
             veiculo.VeiculoId = Convert.ToInt32(Session["VeiculoId"]);
@@ -164,17 +158,7 @@ namespace Veiculos.Site.Pages
                 Response.Redirect("ListarVeiculos.aspx", false);
             else
                 txtPlaca.Focus();
-        }
-
-        private bool ValidarPlaca()
-        {
-            Regex regex = new Regex("^[a-zA-Z]{3}[0-9][A-Za-z0-9][0-9]{2}$");
-
-            if (regex.IsMatch(txtPlaca.Text))
-                return true;
-            else
-                return false;
-        }
+        }       
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
