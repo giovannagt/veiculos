@@ -10,7 +10,7 @@
         <div class="row mt-4">
             <div class="col-md-2">
                 <asp:Label ID="Label1" runat="server" Text="Placa"></asp:Label>
-                <asp:TextBox ID="txtPlaca" runat="server" CssClass="form-control"  MaxLength="7"></asp:TextBox>
+                <asp:TextBox ID="txtPlaca" runat="server" style="text-transform:uppercase;" CssClass="form-control"  MaxLength="7"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Informe a placa" ControlToValidate="txtPlaca" ForeColor="Red" ValidationGroup="ValidarInformacoes"></asp:RequiredFieldValidator>
             </div>
             <div class="col-md-4">
