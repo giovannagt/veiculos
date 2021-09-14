@@ -46,19 +46,24 @@ namespace Veiculos.Site.Pages
 
                 Veiculo veiculo = JsonConvert.DeserializeObject<Veiculo>(IntegrationJsonString);
 
-                txtPlaca.Text = veiculo.Placa;
-                txtModelo.Text = veiculo.Modelo;
-                ddlMarca.SelectedValue = veiculo.MarcaId.ToString();
-                txtAnoFabricacao.Text = veiculo.AnoFabricacao.ToString();
-                txtAnoModelo.Text = veiculo.AnoModelo.ToString();
-                txtCor.Text = veiculo.Cor;
-                ddlTipoVeiculo.SelectedValue = veiculo.TipoVeiculoId.ToString();
-                ddlCombustivel.SelectedValue = veiculo.CombustivelId.ToString();                
+                PreencherCamposTela(veiculo);                              
             }
             catch (Exception ex)
             {
                 Alerta.Show(this.Page, "Erro ao carregar veículo. " + ex.Message);
             }
+        }
+
+        private void PreencherCamposTela(Veiculo info)
+        {
+            txtPlaca.Text = info.Placa;
+            txtModelo.Text = info.Modelo;
+            ddlMarca.SelectedValue = info.MarcaId.ToString();
+            txtAnoFabricacao.Text = info.AnoFabricacao.ToString();
+            txtAnoModelo.Text = info.AnoModelo.ToString();
+            txtCor.Text = info.Cor;
+            ddlTipoVeiculo.SelectedValue = info.TipoVeiculoId.ToString();
+            ddlCombustivel.SelectedValue = info.CombustivelId.ToString();
         }
 
         private async void CarregarMarcas()
@@ -129,15 +134,7 @@ namespace Veiculos.Site.Pages
         {           
             Veiculo veiculo = new Veiculo();
 
-            veiculo.VeiculoId = Convert.ToInt32(Session["VeiculoId"]);
-            veiculo.Placa = txtPlaca.Text.ToUpper();
-            veiculo.Modelo = txtModelo.Text;
-            veiculo.MarcaId = Convert.ToInt32(ddlMarca.SelectedValue);
-            veiculo.AnoFabricacao = Convert.ToInt32(txtAnoFabricacao.Text);
-            veiculo.AnoModelo = Convert.ToInt32(txtAnoModelo.Text);
-            veiculo.Cor = txtCor.Text;
-            veiculo.TipoVeiculoId = Convert.ToInt32(ddlTipoVeiculo.SelectedValue);
-            veiculo.CombustivelId = Convert.ToInt32(ddlCombustivel.SelectedValue);
+            PreencherModeloVeiculo(veiculo);            
 
             var message = JsonConvert.SerializeObject(veiculo);
 
@@ -158,7 +155,20 @@ namespace Veiculos.Site.Pages
                 Response.Redirect("ListarVeiculos.aspx", false);
             else
                 txtPlaca.Focus();
-        }       
+        }
+
+        private void PreencherModeloVeiculo(Veiculo info)
+        {
+            info.VeiculoId = Convert.ToInt32(Session["VeiculoId"]);
+            info.Placa = txtPlaca.Text.ToUpper();
+            info.Modelo = txtModelo.Text;
+            info.MarcaId = Convert.ToInt32(ddlMarca.SelectedValue);
+            info.AnoFabricacao = Convert.ToInt32(txtAnoFabricacao.Text);
+            info.AnoModelo = Convert.ToInt32(txtAnoModelo.Text);
+            info.Cor = txtCor.Text;
+            info.TipoVeiculoId = Convert.ToInt32(ddlTipoVeiculo.SelectedValue);
+            info.CombustivelId = Convert.ToInt32(ddlCombustivel.SelectedValue);
+        }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
