@@ -67,6 +67,8 @@ INSERT INTO Marcas VALUES ('Nissan');
 INSERT INTO Marcas VALUES ('Chevrolet');
 INSERT INTO Marcas VALUES ('FIAT');
 
+INSERT INTO Veiculos VALUES ('ABC1010', 7, 'Onix 1.4 LTZ', 2019, 2020, 'Branco', 2, 3);
+
 GO
 
 CREATE PROCEDURE [dbo].[sp_listarMarcas]
